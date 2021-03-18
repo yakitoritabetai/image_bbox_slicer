@@ -144,8 +144,8 @@ def validate_file_names(img_src, ann_src):
         '.')[-1].lower() in IMG_FORMAT_LIST else False for x in imgs]
     imgs = list(compress(imgs, imgs_filter))
 
-    imgs = [x.split('/')[-1].split('.')[-2] for x in imgs]
-    anns = [x.split('/')[-1].split('.')[-2] for x in anns]
+    imgs = [x.split(os.sep)[-1].split('.')[-2] for x in imgs]
+    anns = [x.split(os.sep)[-1].split('.')[-2] for x in anns]
 
     if not (imgs == anns):
         raise Exception(
